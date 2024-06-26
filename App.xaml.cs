@@ -12,6 +12,7 @@ namespace avillarroelS5
 
             MainPage = new vHome();
             personrepo = person;
+
         }
     }
 }
