@@ -60,5 +60,34 @@ namespace avillarroelS5.Utils
             }
             return new List<Person>();
         }
+
+        public void UpdatePerson(Person person)
+        {
+            try
+            {
+                if (person == null || person.Id == 0)
+                    throw new Exception("Se requiere persona valida");
+
+                var result = conn.Update(person);
+                StatusMessage = string.Format("Dato actualizado correctamente", result, person.Nombre);
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Error al actualizar", ex.Message);
+            }
+        }
+
+        public void DeletePerson(int id)
+        {
+            try
+            {
+                var result = conn.Delete<Person>(id);
+                StatusMessage = string.Format("Dato eliminado correctamente", result, id);
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Error al eliminar", ex.Message);
+            }
+        }
     }
 }

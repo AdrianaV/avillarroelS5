@@ -20,7 +20,7 @@ namespace avillarroelS5
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
-            string dbPath = FileAccessHelp.GetLocalFilePath("personasdb3");
+            string dbPath = FileAccessHelp.GetLocalFilePath("personas.db3");
             builder.Services.AddSingleton<PersonRepository>(s => ActivatorUtilities.CreateInstance<PersonRepository>(s, dbPath));
             return builder.Build();
         }
